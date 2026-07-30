@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#8b0000">
+  <meta name="description" content="50 Chapters Devotional Book by Author SAMUEL E from BELIEVERS GLORIOUS TIME MINISTRY WORLDWIDE with Bible Verses, Sermons, Real-life Events, Audio Player and Prayers.">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Save My Soul">
+  <meta name="msapplication-TileColor" content="#8b0000">
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" type="image/png" href="icon-192.png">
+  <link rel="apple-touch-icon" href="icon-192.png">
+  <title>Save My Soul From Hell Fire - Devotional Book</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #0d0f12;
+      color: #ffffff;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      overflow-x: hidden;
+    }
+
+    .container {
+      max-width: 100%;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      background: linear-gradient(135deg, #0d0f12 0%, #1a1d22 100%);
+      padding: 20px;
+    }
+
+    header {
+      text-align: center;
+      padding: 30px 0;
+      border-bottom: 2px solid #8b0000;
+      margin-bottom: 30px;
+    }
+
+    h1 {
+      font-size: 2.5em;
+      color: #8b0000;
+      margin-bottom: 10px;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+
+    .subtitle {
+      font-size: 1.1em;
+      color: #cccccc;
+      margin-bottom: 10px;
+    }
+
+    .author {
+      font-size: 0.9em;
+      color: #999999;
+      font-style: italic;
+    }
+
+    .content {
+      flex: 1;
+      padding: 20px 0;
+    }
+
+    .section {
+      background: rgba(255, 255, 255, 0.05);
+      padding: 20px;
+      margin-bottom: 20px;
+      border-left: 4px solid #8b0000;
+      border-radius: 8px;
+      backdrop-filter: blur(10px);
+    }
+
+    .section-title {
+      font-size: 1.5em;
+      color: #8b0000;
+      margin-bottom: 15px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .section-content {
+      line-height: 1.8;
+      color: #e0e0e0;
+    }
+
+    .button-group {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-top: 15px;
+    }
+
+    .btn {
+      padding: 12px 20px;
+      background-color: #8b0000;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 1em;
+      transition: all 0.3s ease;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .btn:hover {
+      background-color: #a10000;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(139, 0, 0, 0.4);
+    }
+
+    .btn-secondary {
+      background-color: #333333;
+      color: #ffffff;
+    }
+
+    .btn-secondary:hover {
+      background-color: #444444;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 15px;
+      margin-bottom: 30px;
+    }
+
+    .stat-card {
+      background: rgba(139, 0, 0, 0.1);
+      padding: 15px;
+      border-radius: 8px;
+      text-align: center;
+      border: 1px solid #8b0000;
+    }
+
+    .stat-number {
+      font-size: 2em;
+      color: #8b0000;
+      font-weight: bold;
+    }
+
+    .stat-label {
+      font-size: 0.9em;
+      color: #cccccc;
+      margin-top: 5px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      border-top: 2px solid #8b0000;
+      color: #999999;
+      font-size: 0.9em;
+      margin-top: 30px;
+    }
+
+    .offline-indicator {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background-color: #8b0000;
+      color: white;
+      padding: 10px 15px;
+      border-radius: 6px;
+      font-size: 0.9em;
+      display: none;
+      z-index: 1000;
+    }
+
+    .offline-indicator.active {
+      display: block;
+    }
+
+    .status-badge {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 15px;
+      border-radius: 6px;
+      font-size: 0.85em;
+      display: none;
+      z-index: 1000;
+    }
+
+    .status-badge.active {
+      display: block;
+    }
+
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2em;
+      }
+
+      .button-group {
+        grid-template-columns: 1fr;
+      }
+
+      .stats {
+        grid-template-columns: 1fr;
+      }
+
+      .section-title {
+        font-size: 1.2em;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="offline-indicator" id="offlineIndicator">📡 Offline Mode</div>
+  <div class="status-badge" id="statusBadge">✅ Ready for Install</div>
+
+  <div class="container">
+    <header>
+      <h1>🙏 Save My Soul</h1>
+      <p class="subtitle">From Hell Fire - Devotional Book</p>
+      <p class="author">By Author SAMUEL E | BELIEVERS GLORIOUS TIME MINISTRY WORLDWIDE</p>
+    </header>
+
+    <div class="stats">
+      <div class="stat-card">
+        <div class="stat-number">50</div>
+        <div class="stat-label">Chapters</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">📖</div>
+        <div class="stat-label">Bible Verses</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">🎵</div>
+        <div class="stat-label">Audio Enabled</div>
+      </div>
+    </div>
+
+    <div class="content">
+      <div class="section">
+        <div class="section-title">📚 About This Devotional</div>
+        <div class="section-content">
+          This comprehensive 50-chapter devotional book is designed to guide you on your spiritual journey. Each chapter includes:
+          <ul style="margin-left: 20px; margin-top: 10px;">
+            <li>Inspiring Bible Verses</li>
+            <li>Powerful Sermons</li>
+            <li>Real-life Events & Testimonies</li>
+            <li>Audio Player for Enhanced Experience</li>
+            <li>Guided Prayers</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-title">✨ Features</div>
+        <div class="section-content">
+          <strong>Offline Access:</strong> Read anywhere, anytime without internet connection<br>
+          <strong>Dark Theme:</strong> Easy on the eyes during night reading<br>
+          <strong>Audio Support:</strong> Listen to sermons and prayers<br>
+          <strong>Mobile Optimized:</strong> Works on all devices<br>
+          <strong>Install as App:</strong> Add to your home screen for quick access
+        </div>
+        <div class="button-group">
+          <button class="btn" id="readBtn">📖 Start Reading</button>
+          <button class="btn btn-secondary" id="installBtn" style="display:none;">📲 Install App</button>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-title">🙏 Daily Devotion</div>
+        <div class="section-content">
+          Begin your day with a dedicated devotional session. Each chapter provides spiritual nourishment, biblical guidance, and practical insights to help you navigate life's challenges with faith and confidence.
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-title">📞 Connect With Us</div>
+        <div class="section-content">
+          BELIEVERS GLORIOUS TIME MINISTRY WORLDWIDE<br>
+          <em>Spreading God's Word Through Devotional Teaching</em>
+          <div class="button-group">
+            <button class="btn btn-secondary">Visit Website</button>
+            <button class="btn btn-secondary">Contact Us</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <p>&copy; 2024 BELIEVERS GLORIOUS TIME MINISTRY WORLDWIDE. All rights reserved.</p>
+      <p>Stay blessed and keep growing in faith.</p>
+    </footer>
+  </div>
+
+  <script>
+    // Register Service Worker
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('service-worker.js')
+        .then((registration) => {
+          console.log('✅ Service Worker registered successfully:', registration);
+          document.getElementById('statusBadge').classList.add('active');
+        })
+        .catch((error) => {
+          console.error('❌ Service Worker registration failed:', error);
+        });
+    }
+
+    // Offline/Online detection
+    const offlineIndicator = document.getElementById('offlineIndicator');
+
+    window.addEventListener('offline', () => {
+      offlineIndicator.classList.add('active');
+      console.log('📡 App is now in offline mode');
+    });
+
+    window.addEventListener('online', () => {
+      offlineIndicator.classList.remove('active');
+      console.log('✅ App is back online');
+    });
+
+    // PWA Install Button
+    let deferredPrompt;
+    const installBtn = document.getElementById('installBtn');
+
+    window.addEventListener('beforeinstallprompt', (e) => {
+      e.preventDefault();
+      deferredPrompt = e;
+      installBtn.style.display = 'block';
+      console.log('📲 Install prompt is ready');
+    });
+
+    installBtn.addEventListener('click', async () => {
+      if (deferredPrompt) {
+        deferredPrompt.prompt();
+        const { outcome } = await deferredPrompt.userChoice;
+        console.log(`User response to install prompt: ${outcome}`);
+        if (outcome === 'accepted') {
+          console.log('✅ User accepted install');
+        }
+        deferredPrompt = null;
+        installBtn.style.display = 'none';
+      }
+    });
+
+    // Read Button Handler
+    document.getElementById('readBtn').addEventListener('click', () => {
+      alert('📖 Chapter selection will be available in the full version.');
+    });
+
+    // Log manifest status
+    console.log('🙏 Save My Soul - Devotional Book PWA Loaded');
+    console.log('📋 Manifest: /Lee/manifest.json');
+  </script>
+</body>
+</html>
