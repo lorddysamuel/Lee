@@ -1,0 +1,23 @@
+{
+  "short_name": "Save My Soul",
+  "name": "Save My Soul From Hell Fire - Devotional Book",
+  "icons": [
+    {
+      "src": "/icon-192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "/icon-512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": "/",
+  "background_color": "#0d0f12",
+  "theme_color": "#8b0000",
+  "display": "standalone",
+  "orientation": "portrait",
+  "scope": "/",
+  "description": "50 Chapters Devotional Book by Author SAMUEL E from BELIEVERS GLORIOUS TIME MINISTRY WORLDWIDE with Bible Verses, Sermons, Real-life Events, Audio Player and Prayers."
+}
